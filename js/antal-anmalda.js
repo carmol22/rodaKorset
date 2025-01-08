@@ -1,4 +1,4 @@
-import { fetchData } from "./fetchData.js";
+import { fetchData } from "/js/fetchData.js";
 
 // Map Swedish days to indices
 const dayMap = {
@@ -15,31 +15,47 @@ const storage = window.sessionStorage;
 
 function displayAllPersons() {
     for (let i = 0; i < storage.length; i++) {
-        const ort = storage.key(i)
-        const value = JSON.parse(storage.getItem(ort))
+        const ort = storage.key(i);
+        const value = JSON.parse(storage.getItem(ort));
+
         if (Array.isArray(value)) {
-            const ortDoc = document.getElementById(`${ort}-lista`)
+            const ortDoc = document.getElementById(`${ort}-lista`);
 
             if (ortDoc) {
                 value.forEach(person => {
-                    const infoLi = document.createElement('li')
-                    infoLi.innerHTML = `${person.namn}, ${person.arskurs}, ${person.amne} <span class="online-status">Online: ${person.online}</span>`
-                    ortDoc.appendChild(infoLi)
+                    const infoLi = document.createElement('li');
+                    let emailDisplay = ''; // Default to empty string
+
+                    // Check if person is online and set the email display accordingly
+                    if (person.online === 'ja' && person.email) {
+                        emailDisplay = `<span class="email">${person.email}</span>`; // Display email if online is 'ja'
+                    }
+
+                    infoLi.innerHTML = `${person.namn}, ${person.arskurs}, ${person.amne}, ${emailDisplay} <span class="online-status">Online: ${person.online}</span>`;
+                    ortDoc.appendChild(infoLi);
                 });
             }
         } else if (value && typeof value === 'object') {
-            const ortDoc = document.getElementById(`${ort}-lista`)
+            const ortDoc = document.getElementById(`${ort}-lista`);
 
             if (ortDoc) {
-                const infoLi = document.createElement('li')
-                infoLi.textContent = `${value.namn}, ${value.arskurs}, ${value.amne} ${value.online}`
-                ortDoc.appendChild(infoLi); 
+                let emailDisplay = ''; // Default to empty string
+
+                // Check if person is online and set the email display accordingly
+                if (value.online === 'ja' && value.email) {
+                    emailDisplay = `<span class="email">${value.email}</span>`; // Display email if online is 'ja'
+                }
+
+                const infoLi = document.createElement('li');
+                infoLi.innerHTML = `${value.namn}, ${value.arskurs}, ${value.amne}, ${emailDisplay} ${value.online}`;
+                ortDoc.appendChild(infoLi);
             }
         } else {
             console.warn(`Data for ${ort} is neither an array nor an object! Skipping this location.`);
         }
     }
 }
+
 
 document.addEventListener("DOMContentLoaded", displayAllPersons);
 

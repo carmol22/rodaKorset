@@ -15,12 +15,18 @@ function savePersonData(event) {
     const arkurs = document.getElementById("arkurs").value;
     const amne = document.getElementById("ämne").value;
     const online = document.getElementById("online").value
+    let email = ''; // Initialize email as an empty string by default
 
+    // Capture email only if online is "ja"
+    if (online === "ja") {
+        email = document.getElementById("email").value; // Capture the email only if online is "ja"
+    }
     const personData = {
         namn: namn,
         arskurs: arkurs,
         amne: amne,
-        online: online
+        online: online,
+        email: email // Add email to the person data
     };
 
     // Retrieve the current data for the location (if any), and ensure it's an array

@@ -6,9 +6,9 @@ function createNavbar() {
 
     // Lista på menyalternativ (kan modifieras)
     const menuItems = [
-        { name: 'Hem', link: '../index.html' },
-        { name: 'Anmälan', link: '../anmal-intresse.html' },
-        { name: 'Antal Anmälda', link: '../antal-anmalda.html' }
+        { name: 'Hem', link: '/index.html' },  // Ändrad från '../index.html' till '/index.html'
+        { name: 'Anmälan', link: '/anmal-intresse.html' },  // Ändrad från '../anmal-intresse.html' till '/anmal-intresse.html'
+        { name: 'Antal Anmälda', link: '/antal-anmalda.html' }  // Ändrad från '../antal-anmalda.html' till '/antal-anmalda.html'
     ];
 
     // Skapa listobjekt och länkar för varje menyalternativ

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ansökningssida</title>
-    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
     <form id="anmalan-form">
@@ -56,6 +56,11 @@
             <option value="ja">Ja</option>
             <option value="nej">Nej</option>
         </select>
+
+        <label for="email" id="email-label" style="display: none;">
+            Ange din email:
+            <input type="email" id="email" name="email" placeholder="Ange din email" required>
+        </label>
         
         <br><br>
         <div id="tooltip" class="tooltip">
@@ -66,7 +71,18 @@
         <!-- Skicka-knapp -->
         <button type="submit">Skicka</button>
     </form>
-    <script type="module" src="./js/main.js"></script>
-    <script src="./js/navbar.js"></script>
+    <script>
+        // JavaScript to show/hide the email input inside the label
+        document.getElementById('online').addEventListener('change', function() {
+            const emailLabel = document.getElementById('email-label');
+            if (this.value === 'ja') {
+                emailLabel.style.display = 'block'; // Show email input
+            } else {
+                emailLabel.style.display = 'none'; // Hide email input
+            }
+        });
+    </script>
+    <script type="module" src="/js/main.js"></script>
+    <script src="/js/navbar.js"></script>
 </body>
 </html>
