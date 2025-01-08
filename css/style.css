@@ -1,0 +1,231 @@
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.logo {
+    max-width: 100%; /* Image should never exceed the container width */
+    height: auto; 
+    max-height: 200px;   /* Maintain aspect ratio */
+    display: block;  /* Ensures image is displayed as a block (removes extra spacing) */
+    margin: 0 auto;  /* Centers the image horizontally */
+    margin-top: 70px; /* Add extra margin at the top to ensure it doesn't hide under the navbar */
+}
+
+.buttons {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#anmalan-form{
+    justify-content: center;
+    padding: 50px;
+}
+#anmalan-form > h1{
+    margin-bottom:20px;
+    margin-top:20px;
+}
+
+#lista-anmalda {
+    padding: 20px;
+    width: 80%;
+    margin: 20px auto;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#orter-container {
+    display: flex;
+    justify-content: space-between; 
+    gap: 10px;
+    padding: 10px;
+}
+
+/* Individual ort box */
+.ort {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    padding: 10px;
+    width: 22%; 
+    height: auto;
+    min-height: 60vh;
+    box-sizing: border-box;
+}
+
+/* Ort heading */
+.ort h3 {
+    margin: 0;
+    padding: 10px;
+    border-radius: 5px 5px 0 0;
+    font-size: 18px;
+    text-align: center;
+}
+
+/* Person list styles */
+.personer-lista {
+    margin-top: 10px;
+    padding: 10px;
+    margin-left: 10px;
+    border-radius: 0 0 5px 5px;
+}
+
+/* Individual person entry */
+.person {
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+/* Navigation bar at the top */
+nav {
+    width: 100%;
+    position: fixed; /* Fixes the nav at the top of the page */
+    top: 0; /* Sticks it to the top */
+    left: 0;
+    background-color: #0891a7; /* Dark background for the nav */
+    padding: 10px 20px; /* Padding for the nav */
+    z-index: 1000; /* Ensures the nav is on top of other elements */
+}
+
+/* Style for unordered list in nav */
+nav ul {
+    display: flex;
+    justify-content: center; /* Centers the items horizontally */
+    align-items: center; /* Centers the items vertically */
+    list-style-type: none; /* Removes the default bullets */
+}
+
+/* Style for each navigation item */
+nav ul li {
+    margin: 0 15px; /* Adds space between each item */
+}
+
+/* Style for the links in the navigation items */
+nav ul li a {
+    text-decoration: none;
+    color: white; /* White text color */
+    font-size: 16px; /* Adjust font size */
+    padding: 8px 12px; /* Padding for clickable area */
+    transition: background-color 0.3s ease; /* Smooth transition for hover */
+}
+
+/* Hover effect for links in the navigation */
+nav ul li a:hover {
+    background-color: #575757; /* Light gray background on hover */
+    border-radius: 4px; /* Rounded corners on hover */
+}
+
+.info-icon {
+    color: #007BFF;
+    cursor: pointer;
+    text-decoration-line: underline;
+    margin-right: 5px;
+}
+.tooltip {
+    display: none;
+    background-color: #E0F7FA;
+    padding: 20px;
+    top: 50px;   /* Adjust this to position it below the info-icon */
+    left: 10px; 
+    margin-bottom: 20px; /* Adjust the horizontal position */
+    border: 1px solid #00796b;
+    border-radius: 5px;
+    width: 60vh;
+    max-width: 100vh;
+}
+
+/* Show tooltip when the 'active' class is added */
+.tooltip.active {
+    display: block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    nav ul {
+        flex-direction: column; 
+        align-items: flex-start; 
+    }
+    nav ul li {
+        margin-bottom: 10px;
+    }
+    #orter-container {
+        display: grid; /* Use grid instead of flexbox */
+        grid-template-rows: repeat(2, 1fr); /* Two rows, equal height */
+        grid-template-columns: repeat(2, 1fr);
+        margin-left: 0px; /* Two columns, equal width */
+     /* Space between grid items */
+    }
+    .ort {
+        background-color: #f9f9f9; /* Add a background color for visibility */
+        border: 1px solid #ddd; /* Optional border */
+        display: flex; /* To allow flexibility within the item */
+        flex-direction: column; /* Center content horizontally */
+        min-width: 200px;
+        margin-left: 0px; /* Minimum height to prevent items from becoming too small */
+    }
+
+    .tooltip{
+        width: 300px;
+    }
+} @media (max-width: 500px){
+
+    #orter-container {
+        display: block; 
+        
+    }
+    .ort {
+        min-height: auto;
+        margin-bottom: 20px;
+    }
+}
+
+body {
+    padding-top: 60px;
+}
+
+.nasta-mote{
+    padding:20px;
+    background-color: rgb(16, 187, 96);
+}
+
+.online-status {
+    font-weight: bold;          /* Gör texten fet */
+    color: #007BFF;            /* En snygg blå färg */
+    font-size: 14px;           /* Lagom storlek för texten */
+    background-color: #E0F7FA; /* Ljus bakgrundsfärg för kontrast */
+    padding: 5px 10px;         /* Lägg till lite utrymme runt texten */
+    border-radius: 5px;        /* Gör hörnen rundade */
+    display: inline-block;     /* Gör det som en "chip"-stil */
+}

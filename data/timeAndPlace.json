@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Tumba",
+        "day": "måndagar",
+        "time": "17.00 - 19.00"
+    },
+    {
+        "name": "Fittja",
+        "day": "tisdagar",
+        "time": "17.00 - 19.00"
+    },
+    {
+        "name": "Hallunda",
+        "day": "måndagar",
+        "time": "17.00 - 19.00"
+    },
+    {
+        "name": "Alby",
+        "day": "onsdagar",
+        "time": "17.00 - 18.30"
+    }
+]

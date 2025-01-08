@@ -1,0 +1,18 @@
+{
+    "Alby": {
+        "dag": "onsdag",
+        "tid": "17:00 - 18:30"
+    },
+    "Hallunda": {
+        "dag": "måndag",
+        "tid": "17:00 - 19:00"
+    },
+    "Tumba": {
+        "dag": "måndag",
+        "tid": "17:00 - 19:00"
+    },
+    "Fittja": {
+        "dag": "tisdag",
+        "tid": "17:00 - 19:00"
+    }
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Godkänd</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+<body>
+    <h1>Skickat!</h1>
+    <p>
+        Tack <span id="namn"></span>, vi ses på <span id="dag"></span> i <span id="ort"></span>s Bibliotek mellan <span id="tid"></span>!
+    </p>
+
+    <script>
+        // Hämta URL-parametrar
+        const urlParams = new URLSearchParams(window.location.search);
+
+        // Hämta värden från URL:n
+        const namn = urlParams.get('namn') || "användare";
+        const ort = urlParams.get('ort') || "en plats";
+
+        // Sätt in namn och ort i HTML
+        document.getElementById('namn').textContent = namn;
+        document.getElementById('ort').textContent = ort;
+
+        // Läs dag och tid för ort från JSON-filen
+        fetch('./info.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP-fel! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log(data);  // Lägg till detta för att se vad som hämtas
+
+                // Kontrollera om ort finns i JSON och visa rätt dag och tid
+                const ortInfo = data[ort] || { "dag": "okänd dag", "tid": "okänd tid" };
+
+                // Uppdatera HTML med dag och tid
+                document.getElementById('dag').textContent = ortInfo.dag;
+                document.getElementById('tid').textContent = ortInfo.tid;
+            })
+            .catch(error => {
+                console.error('Kunde inte läsa JSON-filen:', error);
+                document.getElementById('dag').textContent = "okänd dag";
+                document.getElementById('tid').textContent = "okänd tid";
+            });
+    </script>
+    <script type="module" src="./js/main.js"></script>
+    <script src="./js/navbar.js"></script>
+</body>
+</html>

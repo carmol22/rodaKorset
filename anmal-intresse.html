@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ansökningssida</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+<body>
+    <form id="anmalan-form">
+        <h1>Anmälningsformulär</h1>
+        <!-- Ort -->
+        <label for="ort">Välj din ort:</label>
+        <select id="ort" name="ort" required>
+            <option value="" disabled selected>Välj en ort</option>
+            <option value="Alby">Alby</option>
+            <option value="Hallunda">Hallunda</option>
+            <option value="Tumba">Tumba</option>
+            <option value="Fittja">Fittja</option>
+        </select>
+        <br><br>
+
+        <!-- Namn -->
+        <label for="namn">Namn:</label>
+        <input type="text" id="namn" name="namn" placeholder="Ange ditt namn" required>
+        <br><br>
+
+        <!-- Ämne -->
+        <label for="ämne">Studerande ämne:</label>
+        <input type="text" id="ämne" name="ämne" placeholder="Ange skolämne" required>
+        <br><br>
+
+        <!-- Årskurs -->
+        <label for="arkurs">Välj din årskurs:</label>
+        <select id="arkurs" name="arkurs" required>
+            <option value="" disabled selected>Välj en årskurs</option>
+            <option value="Förskola">Förskola</option>
+            <option value="Årskurs-1">Årskurs 1</option>
+            <option value="Årskurs-2">Årskurs 2</option>
+            <option value="Årskurs-3">Årskurs 3</option>
+            <option value="Årskurs-4">Årskurs 4</option>
+            <option value="Årskurs-5">Årskurs 5</option>
+            <option value="Årskurs-6">Årskurs 6</option>
+            <option value="Årskurs-7">Årskurs 7</option>
+            <option value="Årskurs-8">Årskurs 8</option>
+            <option value="Årskurs-9">Årskurs 9</option>
+            <option value="Gymnasium">Gymnasium</option>
+            <option value="Komvux">Komvux</option>
+            <option value="Universitet-högskola">Universitet/Högskola</option>
+        </select>
+        <br><br>
+
+        <label for="online">Om hjälp kan tänkas <span class="info-icon" id="info-icon">online: </span></label>
+        <select id="online" name="online" required>
+            <option value = '' disabled selected>Välj ett alternativ: </option>
+            <option value="ja">Ja</option>
+            <option value="nej">Nej</option>
+        </select>
+        
+        <br><br>
+        <div id="tooltip" class="tooltip">
+            Online-hjälp ger dig möjlighet att, med din egen dator, få stöd av en av våra läxhjälpare som arbetar på distans. 
+            Detta är ett alternativ om väntetiden för hjälp på plats är lång, eller om du föredrar att få hjälp digitalt. 
+            Vi använder främst Google Meet för dessa möten, så vi rekommenderar att du skapar ett konto i förväg för att göra processen så smidig som möjligt!
+        </div>
+        <!-- Skicka-knapp -->
+        <button type="submit">Skicka</button>
+    </form>
+    <script type="module" src="./js/main.js"></script>
+    <script src="./js/navbar.js"></script>
+</body>
+</html>
