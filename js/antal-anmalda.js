@@ -1,4 +1,4 @@
-import { fetchData } from "/js/fetchData.js";
+import { fetchData } from "js/fetchData.js";
 
 // Map Swedish days to indices
 const dayMap = {
